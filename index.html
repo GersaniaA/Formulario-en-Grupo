@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icon@1.9.1/font/bootstrap-icon.css">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-conten-center py-3 mb-4 border-bottom">
+            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4">WW SOLAR</span>
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a href="https://www.facebook.com/gersaniaamador" class="nav-link">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://api.whatsapp.com/send?phone=+50589265902&text=Hola." class="nav-link active">
+                        WhatsApp
+                        <i class="bi-whatsapp"></i>
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <div class="px-4 text-center">
+            <main>
+                <h4 class="mb-3 mt-2">Registro de citas</h4>
+                <form class="needs-validation mt-5" action="https://formsubmit.co/agersania@gmail.com" method="POST" novalidate>
+                    <div class="row g-3">
+                        <div class="col-lg-6">
+                            <hr class="my-4">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input name="Nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required />
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">Debe ingresar su nombre.</div>
+                        </div>
+                        <div class="col-lg-6">
+                            <hr class="my-4">
+                            <label for="apellido" class="form-label">Apellido:</label>
+                            <input name="Apellido" type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido" required />
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">Debe ingresar su apellido.</div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-lg-6">
+                            <hr class="my-4">
+                            <label for="email" class="form-label">Correo Electrónico:</label>
+                            <input name="Email" type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico" required />
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">Debe ingresar un correo electrónico válido.</div>
+                        </div>
+                        <div class="col-lg-6">
+                            <hr class="my-4">
+                            <label for="telefono" class="form-label">Teléfono:</label>
+                            <input name="Telefono" type="tel" class="form-control" id="telefono" placeholder="Ingrese su número de teléfono" required />
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">Debe ingresar un número de teléfono válido.</div>
+                        </div>
+                        <div class="col-lg-6">
+                            <hr class="my-4">
+                            <label for="direccion" class="form-label">Direccion:</label>
+                            <input name="Direccion" type="tel" class="form-control" id="direccion" placeholder="Ingrese su direccion" required />
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">Debe ingresar una direccion válida.</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">GENERAR CITA</button>
+                </form>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-0ERcA2EqjJCMA+/3y+gxI0qMEjwtxJY7qPCqsdltbNJua0e923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script>
+        (() => {
+            'use strict';
+
+            const forms = document.querySelectorAll('.needs-validation');
+
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html>
