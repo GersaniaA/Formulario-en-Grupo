@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regsitro</title>
+    <title>Registro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icon@1.9.1/font/bootstrap-icon.css">
 </head>
@@ -16,7 +16,7 @@
             </a>
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a href="https://www.facebook.com/https://www.facebook.com/gersaniacamila.amadorcruz" class="nav-link">Facebook</a>
+                    <a href="https://www.facebook.com/https://www.facebook.com/Julio.Olivas" class="nav-link">Facebook</a>
                 </li>
                 <li class="nav-item">
                     <a href="https://api.whatsapp.com/send?phone=+50589265902&text=Hola." class="nav-link active">
@@ -29,7 +29,10 @@
         <div class="px-4 text-center">
             <main>
                 <h4 class="mb-3 mt-2">Registro de citas</h4>
-                <form class="needs-validation mt-5" action="https://formsubmit.co/agersania@gmail.com" method="POST" novalidate>
+                <form class="needs-validation mt-5" action="https:formsubmit.co/olivaj309@gmail.com" method="POST"
+                class="needs-validation" 
+                novalidate
+                enctype="multipart/form-data"> 
                     <div class="row g-3">
                         <div class="col-lg-6">
                             <hr class="my-4">
@@ -166,27 +169,81 @@
 
 
                     <button type="submit" class="btn btn-primary btn-lg">GENERAR CITA</button>
+                                                    
                 </form>
             </main>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-0ERcA2EqjJCMA+/3y+gxI0qMEjwtxJY7qPCqsdltbNJua0e923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js">  
+    </script>
+
     <script>
         (() => {
-            'use strict';
+                    'use strict';
+                    const forms = document.querySelectorAll('.needs-validation');
+    
+                    Array.from(forms).forEach(form => {
+                        form.addEventListener('submit', event => {
+                            if (!form.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                })();
+        </script>
 
-            const forms = document.querySelectorAll('.needs-validation');
+    <script>
+        function GenerarCita() {
+        // Obtener los valores ingresados en los campos del formulario de registro
+        const nombre = document.getElementById('nombre').value.trim();
+        const apellido= document.getElementById('apellido').value.trim();
+        const fecha = document.getElementById('fecha').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const direccion = document.getElementById('direccion').value.trim();
+        const motivoC = document.getElementById('motivoC').value.trim();
+        const edad = document.getElementById('edad').value.trim();
+        const hora = document.getElementById('hora').value.trim();
+        const ciudad = document.getElementById('ciudad').value.trim();
+        const trabajo = document.getElementById('trabajo').value.trim();
+        const genero = document.getElementById('genero').value.trim();
+        const pais = document.getElementById('pais').value.trim();
+        const nivelE = document.getElementById('nivelE').value.trim();
+        const experienciaL = document.getElementById('experienciaL').value.trim();
 
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        })();
+        // Verificar que los campos estén llenos antes de crear el archivo .pdf
+        if (nombre === '' || apellido === ''||fecha === '' ||
+        telefono === '' || direccion === '' || motivoC === ''  || edad === '' || hora === ''
+        || hora === '' || ciudad === '' || trabajo === '' || genero === '' || pais === ''
+        || nivelE === '' || experienciaL === '') {
+        
+            return;
+        }
+                        
+                        
+         const doc = new jsPDF();
+         doc.setFillcolor(28, 41, 51);
+         doc.rect(0, 0, 220, 60, 'f');
+         doc.setFontSize(14);
+         doc.setFontType("bold");                        
+         doc.text('Formulario en grupo', 12, 50);
+         //Añadir los datos al archivo pdf                  
+        const content = `
+         ${nombre}  ${apellido} ${correo} ${telefono} ${direccion} ${fecha}
+         ${motivoC} ${edad} ${hora} ${ciudad} ${trabajo} ${genero} ${pais}
+         ${nivelE}  ${experienciaL}
+
+         `;
+         doc.setFontSize(12);
+         doc.text(content, 20, 70);
+
+         const docpdf = `Citas.pdf`;
+         doc.save(docpdf);
+    }
     </script>
 </body>
 </html>
